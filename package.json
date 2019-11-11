@@ -1,0 +1,19 @@
+{
+  "name": "node-postgres-boilerplate",
+  "version": "1.0.0",
+  "description": "A boilterplate for Express and Sequelize",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Exuus/node-postgress-boilerplate.git"
+  },
+  "author": "Olivier Esuka <oesukam@gmail.com> (https://oesukam.me)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Exuus/node-postgres-boilerplate/issues"
+  },
+  "homepage": "https://github.com/Exuus/node-postgres-boilerplate#readme"
+}
