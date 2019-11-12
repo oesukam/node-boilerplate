@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Exuus/node-postgres-boilerplate/issues"
   },
-  "homepage": "https://github.com/Exuus/node-postgres-boilerplate#readme"
+  "homepage": "https://github.com/Exuus/node-postgres-boilerplate#readme",
+  "dependencies": {
+    "typescript": "^3.7.2"
+  }
 }
