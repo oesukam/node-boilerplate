@@ -76,4 +76,5 @@ yarn.lock
 # DynamoDB Local files
 .dynamodb/
 
+dist/
 # End of https://www.gitignore.io/api/node
