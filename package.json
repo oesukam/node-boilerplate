@@ -8,6 +8,7 @@
     "start": "node dist/server.js",
     "dev": "babel-watch ./src/server.js",
     "build": "cross-env babel src --out-dir dist --ignore '**/__tests__,**/__mocks__'",
+    "build:start": "npm run build && node dist/index.js",
     "lint": "node_modules/.bin/eslint 'src/**/*.*'",
     "lint:fix": "prettier-eslint --write 'src/**/*.*'",
     "sequelize": "./node_modules/.bin/babel-node ./node_modules/.bin/sequelize $*"
