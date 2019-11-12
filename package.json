@@ -4,7 +4,7 @@
   "description": "A boilterplate for Express and Sequelize",
   "main": "src/index.js",
   "scripts": {
-    "test": "NODE_ENV=test jest --forceExit --detectOpenHandles  --silent",
+    "test": "cross-env NODE_ENV=test jest --forceExit --detectOpenHandles  --silent",
     "start": "node dist/server.js",
     "dev": "babel-watch ./src/server.js",
     "build": "cross-env babel src --out-dir dist --ignore '**/__tests__,**/__mocks__'",

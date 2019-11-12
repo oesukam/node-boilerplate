@@ -6,9 +6,9 @@ import helmet from 'helmet';
 import methodOverride from 'method-override';
 import swaggerUi from 'swagger-ui-express';
 import joiErrors from './middlewares/joiErrors';
+import movedPermanently from './middlewares/movedPermanently';
 import swaggerDocument from './swagger';
-import { SERVER_ERROR } from './constants/statusCodes';
-import { serverError } from './constants/responseMessages';
+import { NOT_FOUND } from './constants/statusCodes';
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -30,17 +30,25 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Routes
+app.all('/v1/*', movedPermanently());
+app.all('/v2/*', movedPermanently());
 app.use(`${apiPrefix}/docs`, swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(joiErrors());
 
-app.get('/', (req, res) => res.json({ status: 200, message: 'Welcome to our API' }));
+app.get('/', (req, res) => res.json({
+  status: 200,
+  message: 'Welcome to our API',
+}));
 
 app.use((req, res) => {
-  res.status(SERVER_ERROR).json({
-    status: SERVER_ERROR,
-    message: serverError(),
-  });
+  const status = NOT_FOUND;
+  const message = 'Not Found';
+  return res.status(NOT_FOUND)
+    .json({
+      status,
+      message,
+    });
 });
 
 export default app;
