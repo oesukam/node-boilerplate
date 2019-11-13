@@ -1,9 +1,10 @@
 import asyncHandler from '../asyncHandler';
 
 describe('asyncHandler', () => {
-  test('should be called', async () => {
+  test('the callback should be called', async () => {
     const cb = jest.fn().mockImplementation(() => Promise.resolve());
-    await asyncHandler(cb);
+    const response = await asyncHandler(cb);
+    await response();
 
     expect(cb).toBeCalled();
   });
