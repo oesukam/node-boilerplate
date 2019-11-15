@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import movedPermanently from '../../middlewares/movedPermanently';
+import movedPermanently from '../../../middlewares/movedPermanently';
 
 const router = Router();
 
