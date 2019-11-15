@@ -4,11 +4,10 @@ import morgan from 'morgan';
 import cors from 'cors';
 import helmet from 'helmet';
 import methodOverride from 'method-override';
-import swaggerUi from 'swagger-ui-express';
+
 import joiErrors from './middlewares/joiErrors';
-import movedPermanently from './middlewares/movedPermanently';
-import swaggerDocument from './swagger';
 import { NOT_FOUND } from './constants/statusCodes';
+import api from './resources/api';
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -20,7 +19,6 @@ app.use(helmet());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-const apiPrefix = '/api/v3';
 
 // Log requests to the console.
 app.use(morgan(isProd ? 'combined' : 'dev'));
@@ -30,9 +28,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Routes
-app.all('/v1/*', movedPermanently());
-app.all('/v2/*', movedPermanently());
-app.use(`${apiPrefix}/docs`, swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/api', api);
 
 app.use(joiErrors());
 

@@ -23,7 +23,7 @@ module.exports = {
       },
       message: {
         type: 'string',
-        example: 'Bad Request',
+        example: 'Error Message',
       },
       errors: {
         type: 'array',

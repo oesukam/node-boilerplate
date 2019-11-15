@@ -1,6 +1,6 @@
 import 'dotenv/config';
 
-const { HOST, ADMIN_EMAIL } = process.env;
+const { ADMIN_EMAIL } = process.env;
 /* eslint-disable global-require */
 export default {
   swagger: '2.0',
@@ -13,7 +13,6 @@ export default {
       email: ADMIN_EMAIL,
     },
   },
-  host: HOST,
   basePath: '/api/v1/',
   produces: ['application/json'],
   consumes: ['application/json'],
@@ -23,5 +22,6 @@ export default {
   },
   definitions: {
     ...require('./definitions/ErrorResponse'),
+    ...require('./definitions/AuthSchema'),
   },
 };

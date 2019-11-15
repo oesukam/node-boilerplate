@@ -6,7 +6,7 @@ module.exports = {
       tags: ['auth'],
       summary: 'Login',
       schema: {
-        $ref: '#/definitions/CartAdd',
+        $ref: '#/definitions/LoginBody',
       },
       responses,
     },
